@@ -1,4 +1,10 @@
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        'menus':[
+            ['Home','/'],
+            ['Pi','/pi']
+        ]
+    }
+    return render(request, 'index.html', context)

@@ -19,9 +19,15 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              {% for menu,link in menus %}
+              <li class="nav-item">
+                <a class="nav-link {% if menu == "Home" %} active {% endif %}" href="{{ link }}">{{ menu }}
+                  {% if menu == "Home" %}
+                    <span class="sr-only">(current)</span>
+                  {% endif %}
+                </a>
               </li>
+              {% endfor %}
             </ul>
           </div>
         </div>
@@ -29,25 +35,6 @@
     </header>
     <main>
       <div class="container">
-        <table class="table table-borderless text-center">
-          <thead>
-            <tr>
-              <th scope="col">Object</th>
-              <th scope="col">Action</th>
-              <th scope="col">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Light</td>
-              <td>
-                <a class="btn btn-success" href="#">On</a>
-                <a class="btn btn-danger" href="#">Off</a>
-              </td>
-              <td>@mdo</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
